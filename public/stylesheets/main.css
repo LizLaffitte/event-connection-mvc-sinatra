@@ -73,7 +73,21 @@
   }
 
   .branding {
-    clear: both;
+    /*clear: both;*/
+    width: 40%;
+  }
+
+  footer > div {
+    
+    float: left;
+  }
+
+  footer.footer-nav {
+    width: 60%;
+  }
+  .footer-nav li {
+    display: inline-block;
+    padding: 5px;
   }
 
   footer {

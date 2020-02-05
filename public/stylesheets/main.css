@@ -57,7 +57,7 @@
 
   .content {
     float: left;
-    width: 60%; /* 480px / 800px */
+    width: 100%; /* 480px / 800px */
   }
 
   .sidebar {

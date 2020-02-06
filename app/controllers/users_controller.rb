@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     #read user | profile | See events that belong to user
     get '/user/:id' do
         @user = current_user
-        @user_events = Events.all.collect {|event| event.user_id == current_user.id}
+        @user_events = Event.all.select {|event| event.user_id == current_user.id}
         erb :'/users/show'
     end
 

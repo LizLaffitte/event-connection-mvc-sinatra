@@ -2,8 +2,12 @@ class EventsController < ApplicationController
 
     #displays all events
     get '/events' do
-        @user = current_user
-        erb :'/events/index'
+        if logged_in?
+            @user = current_user
+            erb :'/events/index'
+        else
+            redirect '/login'
+        end
     end
 
     #displays form to create new events

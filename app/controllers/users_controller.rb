@@ -7,6 +7,13 @@ class UsersController < ApplicationController
 
     #create new user
     post '/signup' do
+        user = User.new(params)
+        if user.save
+            session[:id] = user.id
+            redirect '/events'
+        else
+           redirect '/signup'
+        end
     end
 
     #display form to login

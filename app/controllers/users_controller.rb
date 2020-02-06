@@ -2,7 +2,11 @@ class UsersController < ApplicationController
 
     #display form to create new user
     get '/signup' do
-        erb :'users/signup'
+        if logged_in?
+            redirect '/events'
+        else
+            erb :'users/signup'
+        end
     end
 
     #create new user
@@ -18,7 +22,11 @@ class UsersController < ApplicationController
 
     #display form to login
     get '/login' do
-        erb :'/users/login'
+        if logged_in?
+            redirect '/events'
+        else
+            erb :'/users/login'
+        end
     end
 
     #does user exist? | does login info match what's in the table  | set session id/log in user

@@ -31,10 +31,20 @@ class UsersController < ApplicationController
 
     #does user exist? | does login info match what's in the table  | set session id/log in user
     post '/login' do
+        user = User.find_by(:username => params[:username])
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            redirect '/events'
+        else
+           redirect '/login'
+        end
     end
 
     #read user | profile | See events that belong to user
     get '/user/:id' do
+        @user = current_user.id
+        @user_events = Events.all.collect {|event| event.user_id == current_user.id}
+        erb :'/users/show'
     end
 
     #clear session id/log user out

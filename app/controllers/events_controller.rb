@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 
     #displays all events
     get '/events' do
+        @user = current_user
         erb :'/events/index'
     end
 

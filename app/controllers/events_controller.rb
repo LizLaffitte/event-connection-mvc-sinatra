@@ -4,6 +4,7 @@ class EventsController < ApplicationController
     get '/events' do
         if logged_in?
             @user = current_user
+            @events = Event.all
             erb :'/events/index'
         else
             redirect '/login'
@@ -12,7 +13,11 @@ class EventsController < ApplicationController
 
     #displays form to create new events
     get '/events/new' do
-        erb :'/events/new'
+        if logged_in?
+            erb :'/events/new'
+        else
+            redirect '/login'
+        end
     end
 
     #creates new event

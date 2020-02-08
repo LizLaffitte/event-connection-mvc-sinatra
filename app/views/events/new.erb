@@ -6,12 +6,13 @@
 <br /><br />
 <label>Date:</label>
 <br />
-<input type="datetime-local" name="date">
+<input type="datetime-local" name="date" min="<%= @current_datetime%>">
 <br /><br />
 <label>Location:</label><br />
 <input type="text" name="location">
 <br /><br /><label>Details:</label><br />
-<input type="text" name="details">
+<textarea name="details" rows="8" cols="28">
+</textarea>
 <br /><br />
 <input type="submit" value="Add Event">
 </form>

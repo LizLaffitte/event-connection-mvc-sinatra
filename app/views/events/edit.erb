@@ -1,0 +1,24 @@
+<h1>Edit Your Event</h1>
+<form method="POST" action="/events/<%= @event.id %>">
+<input type="hidden" name="_method" value="PATCH">
+<label>Event Name:</label><br />
+<input type="text" name="name" value="<%= @event.name%>" required>
+<br /><br />
+<label>Start Date & Time:</label>
+<br />
+<input type="datetime-local" name="start_datetime" min="<%= @current_datetime%>" value="<%= @event.start_datetime%>" required>
+<br /><br />
+<label>End Date & Time:</label>
+<br />
+<input type="datetime-local" name="end_datetime" min="<%= @current_datetime%>" value="<%= @event.start_datetime%>">
+<br /><br />
+
+<label>Location:</label><br />
+<input type="text" name="location" value="<%= @event.location%>" required>
+<br /><br /><label>Details:</label><br />
+<textarea name="details" rows="8" cols="28">
+<%= @event.details%>
+</textarea>
+<br /><br />
+<input type="submit" value="Edit Event">
+</form>

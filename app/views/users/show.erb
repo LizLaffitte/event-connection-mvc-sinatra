@@ -4,8 +4,7 @@
     <h3><%= event.name %></h3>
     <p><strong>When:</strong> <%= event.start_datetime %><br />
     <strong>Where:</strong> <%= event.location %></p>
-    <p><%= event.details %></p>
-    <p><a href="/events/#{event.id}/edit">Edit</a></p>
+    <p><a href="/events/<%= event.id %>">See event details.</a></p>
     </div>
     
     <% end %>

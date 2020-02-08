@@ -3,7 +3,7 @@
 <p><strong>Where:</strong> <%= @event.location %></p>
 <p><%= @event.details %></p>
 <p><a href="/events/<%= @event.id %>/edit">Edit this event</a></p>
-<form method="POST" action="/evens/<%= @event.id%>">
+<form method="POST" action="/events/<%= @event.id%>">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete Event" id="Delete Event">
 </form>

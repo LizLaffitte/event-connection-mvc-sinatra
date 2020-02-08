@@ -2,14 +2,19 @@
 
 <form method="POST" action="/events">
 <label>Event Name:</label><br />
-<input type="text" name="name">
+<input type="text" name="name" required>
 <br /><br />
-<label>Date:</label>
+<label>Start Date & Time:</label>
 <br />
-<input type="datetime-local" name="date" min="<%= @current_datetime%>">
+<input type="datetime-local" name="start_datetime" min="<%= @current_datetime%>" required>
 <br /><br />
+<label>End Date & Time:</label>
+<br />
+<input type="datetime-local" name="end_datetime" min="<%= @current_datetime%>">
+<br /><br />
+
 <label>Location:</label><br />
-<input type="text" name="location">
+<input type="text" name="location" required>
 <br /><br /><label>Details:</label><br />
 <textarea name="details" rows="8" cols="28">
 </textarea>

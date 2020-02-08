@@ -4,6 +4,7 @@
         <h2><%= event.name %></h2>
         <strong><%= event.date %> | <%= event.location %></strong>
         <p><%= event.details %></p>
+        
     <% end %>
 </div>
 <div><a href="/events/new">Add an event</a> or see <a href="/user/<%= @user.id %>">your events</a>.

@@ -1,10 +1,11 @@
 <h1><%= @user.username %>'s Events</h1>
-<ul>
 <%  @user_events.each do |event| %>
-    <li><%= event.name %><br />
-    <%= event.location %>
-    <%= event.date %>
-    </li>
+    <div class="event-card">
+    <h3><%= event.name %></h3>
+    <p><strong>When:</strong> <%= event.date %><br />
+    <strong>Where:</strong> <%= event.location %></p>
+    <p><%= event.details %></p>
+    <p><a href="/events/#{event.id}/edit">Edit</a></p>
+    </div>
     <% end %>
       
-</ul>

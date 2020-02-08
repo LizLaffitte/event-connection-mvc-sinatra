@@ -5,7 +5,14 @@ class UsersController < ApplicationController
         if logged_in?
             redirect '/events'
         else
-            erb :'users/signup'
+            @error_message = session[:current_error].join(" ")
+            if @error_message.include?("Email has already been taken")
+                session[:current_error] = "You are already signed up. Try logging in."
+                erb :'/users/login'
+            else
+                erb :'/users/signup'
+            end
+           
         end
     end
 
@@ -13,10 +20,12 @@ class UsersController < ApplicationController
     post '/signup' do
         user = User.new(params)
         if user.save
-            session[:id] = user.id
+            session[:user_id] = user.id
             redirect '/events'
         else
-           redirect '/signup'
+           user.valid?
+           session[:current_error] = user.errors.full_messages
+            redirect '/signup'
         end
     end
 
@@ -25,6 +34,7 @@ class UsersController < ApplicationController
         if logged_in?
             redirect '/events'
         else
+            @current_error = session[:current_error]
             erb :'/users/login'
         end
     end
@@ -42,9 +52,13 @@ class UsersController < ApplicationController
 
     #read user | profile | See events that belong to user
     get '/user/:id' do
-        @user = current_user
-        @user_events = Event.all.select {|event| event.user_id == current_user.id}
-        erb :'/users/show'
+        if logged_in?
+            @user = current_user
+            @user_events = Event.all.select {|event| event.user_id == current_user.id}
+            erb :'/users/show'
+        else
+            redirect '/login'
+        end
     end
 
     #clear session id/log user out

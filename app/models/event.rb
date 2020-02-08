@@ -6,8 +6,10 @@ class Event < ActiveRecord::Base
     validates :details, presence: true
 
     def format_date(datetime_string)
-        Date.new(datetime_string).strftime()    
+        @date_obj = Date.strptime(datetime_string, '%Y-%m-%dT%H:%M')
+        @date_obj.strftime('%A')    
     end
+
 
 
 end

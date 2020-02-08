@@ -2,7 +2,7 @@
 <div>
     <% @events.all.each do |event| %>
         <h2><%= event.name %></h2>
-        <strong><%= event.start_datetime %> | <%= event.location %></strong>
+        <p><strong>When:</strong> <%= event.format_date(event.start_datetime) %> <%= event.location %></strong>
         <p><%= event.details %></p>
         
     <% end %>

@@ -10,7 +10,7 @@
 <br /><br />
 <label>End Date & Time:</label>
 <br />
-<input type="datetime-local" name="end_datetime" min="<%= @current_datetime%>" value="<%= @event.start_datetime%>">
+<input type="datetime-local" name="end_datetime" min="<%= @current_datetime%>" value="<%= @event.end_datetime%>">
 <br /><br />
 
 <label>Location:</label><br />
@@ -20,5 +20,5 @@
 <%= @event.details%>
 </textarea>
 <br /><br />
-<input type="submit" value="Edit Event">
+<input class="btn" type="submit" value="Edit">
 </form>

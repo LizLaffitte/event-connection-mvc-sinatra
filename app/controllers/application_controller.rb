@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
     def menu_options
       if logged_in?
         @user = current_user
-        "<li><a href='/user/#{@user.id}'>My Events</a></li>"
+        "<li><a href='/user/#{@user.id}'>My Events</a></li><li><a href='/logout'Logout</a></li>"
       else
         '<li><a href="/login">Login</a></li><li><a href="/login">Sign Up</a></li>'
       end

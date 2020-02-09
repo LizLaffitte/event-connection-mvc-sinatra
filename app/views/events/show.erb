@@ -1,9 +1,9 @@
 <h1><%= @event.name %></h1>
-<p><strong>When:</strong> <%= @event.format_date_long(@event.start_datetime) %><% if @event.end_datetime != nil %> <%= @event.end_datetime %><% end %></p>
+<p><strong>When:</strong> <%= @event.format_date_long(@event.start_datetime) %><% if @event.end_datetime != nil %> <%= @event.format_date_long(end_datetime) %><% end %></p>
 <p><strong>Where:</strong> <%= @event.location %></p>
 <p><%= @event.details %></p>
 <p><a href="/events/<%= @event.id %>/edit">Edit this event</a></p>
 <form method="POST" action="/events/<%= @event.id%>">
     <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete Event" id="Delete Event">
+    <input type="submit" value="Delete" id="Delete">
 </form>

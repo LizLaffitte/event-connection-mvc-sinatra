@@ -1,18 +1,20 @@
-<h1>Log In:</h1>
-<p>
+<div class="error-message">
 <% if @error_messages && @error_messages.length > 0 %>
     <% @error_messages.each do |error| %>
     <em><%= error %> </em>
     <% end %>
     
 <% end %>
-</p>
-<form method="POST" action="/login">
-<label>Username:</label><br />
-<input type="text" name="username">
-<br /><br />
-<label>Password:</label><br />
-<input type="text" name="password">
-<br /><br />
-<input type="submit" value="Log In">
+</div>
+<form method="POST" action="/login" class="full-form">
+<div class="form-header"><h1>Log In:</h1></div>
+<div class="form-contents">
+    <label>Username:</label><br />
+    <input type="text" name="username">
+    <br /><br />
+    <label>Password:</label><br />
+    <input type="text" name="password">
+    <br /><br />
+    <input class="btn" type="submit" value="Log In">
+</div>
 </form>

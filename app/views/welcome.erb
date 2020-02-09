@@ -1,17 +1,21 @@
 <div class="container">
-  <header></header>
   <div class="col-md-8 col-md-offset-2">
     <h1>Event Connection</h1>
 
     <div class="content">
     <p>Welcome to Event Connection. See what's happening in your community and add your own events to our community calendar. </p> 
-    <% if !logged_in? %><p><a href="/signup">Sign up</a> or <a href="/login">login</a>.</p><% end %>
+    
+    <div class="event-list-view">
+      <div class="special-header"><h2>Upcoming Events:</h2></div>
+      <% @upcoming_events.each do |event|%>
+        <div class="event-list-item">
+        <p><strong><%= event.name %></strong></p>
+        <p><%= event.format_date(event.start_datetime)%> | <%= event.location %> <a class="mini-btn" href="/events/<%= event.id%>">See Details ></a></p>
+        </div>
+      <% end %>
     </div>
-    <h2>Upcoming Events:</h2>
-    <div class="event-list">
-    <% @upcoming_events.each do |event|%>
-      <%= event.name %>
-      </div>
-    <% end %>
+    <a class="btn" href="/events">Full Calendar</a>
+    </div>
+    
   </div>
 </div>

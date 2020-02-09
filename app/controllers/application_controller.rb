@@ -23,6 +23,14 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id])
     end
 
+    def menu_options
+      if logged_in?
+        @user = current_user
+        "<li><a href='/user/#{@user.id}'>My Events</a></li>"
+      else
+        '<li><a href="/login">Login</a></li><li><a href="/login">Sign Up</a></li>'
+      end
+    end
     
   end
 

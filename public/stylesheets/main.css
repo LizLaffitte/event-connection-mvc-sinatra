@@ -21,7 +21,7 @@
     flex-direction: column;
  
   }
-
+  
   .wrapper {
     background: #fff;
     /* -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -32,10 +32,6 @@
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
     flex: 1 0 auto;
-  }
-
-  header{
-    
   }
 
   h1 {
@@ -81,29 +77,41 @@
     font-size: 14px;
   }
 
-  .branding {
+  .branding, .logo {
     width: 40%;
     float: left;
   }
 
 
-  footer div.footer-nav {
+  .menu-nav {
     width: 60%;
     float: left;
     text-align: right;
   }
-  .footer-nav li {
+  .menu-nav li {
     display: inline-block;
     padding: 5px;
-    
+  }
+  .menu-nav a{
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
   }
 
-  footer {
-    border-top: 2px solid #ccc;
+  footer a:hover{
+    text-decoration: underline;
+  }
+  footer{
     margin-top: 20px;
+  }
+
+  footer, header {
+   
     padding: 20px 15%;
     clear:both;
     flex-shrink: 0;
+    color: #fff;
+    background-color: #2E4052;
   }
 }
 

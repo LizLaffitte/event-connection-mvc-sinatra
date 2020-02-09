@@ -13,21 +13,29 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-color: #fff;
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
+    display: flex;
+    flex-direction: column;
+ 
   }
 
   .wrapper {
     background: #fff;
-    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    /* -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    box-shadow: 0 0 10px rgba(0,0,0,.3); */
     margin: 16px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
+    flex: 1 0 auto;
+  }
+
+  header{
+    
   }
 
   h1 {
@@ -36,7 +44,7 @@
   }
 
   h2 {
-    border-bottom: 2px solid #ccc;
+    /* border-bottom: 2px solid #ccc; */
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
@@ -49,7 +57,7 @@
 
   p {
     margin-bottom: 28px;
-    
+    margin-top:15px;;
   }
 
   .main {
@@ -74,28 +82,28 @@
   }
 
   .branding {
-    /*clear: both;*/
     width: 40%;
-  }
-
-  footer > div {
-    
     float: left;
   }
 
-  footer.footer-nav {
+
+  footer div.footer-nav {
     width: 60%;
+    float: left;
+    text-align: right;
   }
   .footer-nav li {
     display: inline-block;
     padding: 5px;
+    
   }
 
   footer {
     border-top: 2px solid #ccc;
     margin-top: 20px;
-    padding-top: 20px;
+    padding: 20px 15%;
     clear:both;
+    flex-shrink: 0;
   }
 }
 

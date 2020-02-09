@@ -5,10 +5,13 @@
 
     <div class="content">
     <p>Welcome to Event Connection. See what's happening in your community and add your own events to our community calendar. </p> 
-    <p><a href="/signup">Sign up</a> or <a href="/login">login</a>.</p>
+    <% if !logged_in? %><p><a href="/signup">Sign up</a> or <a href="/login">login</a>.</p><% end %>
     </div>
-
-  
-
+    <h2>Upcoming Events:</h2>
+    <div class="event-list">
+    <% @upcoming_events.each do |event|%>
+      <%= event.name %>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -10,6 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    @upcoming_events = Event.all.order(start_datetime: :asc)
     erb :welcome
   end
 

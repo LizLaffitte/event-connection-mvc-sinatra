@@ -1,10 +1,16 @@
 <h1>Events:</h1>
-<div>
+<div class="card-holder">
     <% @events.all.each do |event| %>
-        <h2><%= event.name %></h2>
-        <p><strong>When:</strong> <%= event.format_date(event.start_datetime) %></p>
-        <p><strong>Where:</strong> <%= event.location %></p>
-        <p><%= event.details %></p>
+        <div class="event-card">
+            <div class="card-header">
+                <h3><%= event.name %></h3>
+            </div>
+            <div class="card-content clearfix">
+                <p><%= event.format_date(event.start_datetime) %></p>
+                <p><%= event.location %></p>
+                <a class="mini-btn" href="/events/<%= event.id%>">See Details ></a> 
+            </div>
+         </div>
         
     <% end %>
 </div>

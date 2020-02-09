@@ -46,7 +46,7 @@
   }
 
   h3 {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 36px;
   }
 
@@ -169,8 +169,15 @@
       padding: 10px 20px;
     }
 
-  .special-header, .full-form.green-option .form-header{
+  .special-header, .full-form.green-option .form-header, .card-header{
     background-color: #A8BCA1;
+    color: #fff;
+  }
+  .card-header, .card-content{
+    padding: 5px;
+  }
+  .event-card .mini-btn {
+    float:right;
   }
   .event-list-item {
     border-bottom: 1px solid #A8BCA1;
@@ -184,8 +191,9 @@
     
   }
 
-  .full-form.green-option {
+  .full-form.green-option, .event-card {
     border: 4px solid  #A8BCA1;
+    border-radius: 4px;
   }
 
   .full-form.green-option .btn {
@@ -232,6 +240,15 @@
   }
   .clearfix {
     overflow: auto;
+  }
+  .card-holder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .event-card{
+    flex-basis: 300px;
+    margin-bottom: 50px;
   }
 }
 

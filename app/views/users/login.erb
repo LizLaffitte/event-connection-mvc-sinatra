@@ -2,7 +2,7 @@
 <p>
 <% if @error_messages && @error_messages.length > 0 %>
     <% @error_messages.each do |error| %>
-    <em><%= error %>. </em>
+    <em><%= error %> </em>
     <% end %>
     
 <% end %>
@@ -10,10 +10,6 @@
 <form method="POST" action="/login">
 <label>Username:</label><br />
 <input type="text" name="username">
-<br /><br />
-<label>Email Address:</label>
-<br />
-<input type="text" name="email">
 <br /><br />
 <label>Password:</label><br />
 <input type="text" name="password">

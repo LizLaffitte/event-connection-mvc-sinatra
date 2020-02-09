@@ -5,10 +5,10 @@ class UsersController < ApplicationController
         if logged_in?
             redirect '/events'
         else
-            @error_message = session[:current_error].join(" ")
-            if @error_message.include?("Email has already been taken")
+            @error_message = session[:current_error]
+            if @error_message && @error_message.include?("Email has already been taken")
                 session[:current_error] = "You are already signed up. Try logging in."
-                erb :'/users/login'
+                redirect '/login'
             else
                 erb :'/users/signup'
             end
@@ -21,6 +21,7 @@ class UsersController < ApplicationController
         user = User.new(params)
         if user.save
             session[:user_id] = user.id
+            session[:current_error] = nil
             redirect '/events'
         else
            user.valid?

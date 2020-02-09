@@ -1,5 +1,12 @@
 <h1>Log In:</h1>
-<% if @current_errors %><p><%= @current_errors %></p><% end %>
+<p>
+<% if @error_messages && @error_messages.length > 0 %>
+    <% @error_messages.each do |error| %>
+    <em><%= error %>. </em>
+    <% end %>
+    
+<% end %>
+</p>
 <form method="POST" action="/login">
 <label>Username:</label><br />
 <input type="text" name="username">

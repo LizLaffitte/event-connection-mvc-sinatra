@@ -1,5 +1,6 @@
-<h1>Edit Your Event</h1>
-<form method="POST" action="/events/<%= @event.id %>">
+<form method="POST" action="/events/<%= @event.id %>" class="full-form green-option clearfix">
+<div class="form-header"><h1>Edit Your Event</h1></div>
+<div class="form-content">
 <input type="hidden" name="_method" value="PATCH">
 <label>Event Name:</label><br />
 <input type="text" name="name" value="<%= @event.name%>" required>
@@ -21,4 +22,5 @@
 </textarea>
 <br /><br />
 <input class="btn" type="submit" value="Edit">
+</div>
 </form>

@@ -4,5 +4,8 @@ class User < ActiveRecord::Base
     validates :username, presence: true, uniqueness: true
     validates :email, presence: true, uniqueness: true
 
+    def owns_event?(event)
+        self.id == event.user_id
+    end    
 
 end

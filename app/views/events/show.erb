@@ -2,8 +2,10 @@
 <p><strong>When:</strong> <%= @event.format_date_long(@event.start_datetime) %><% if @event.end_datetime != "" && @event.end_datetime != nil %> <%= @event.format_date_long(@event.end_datetime) %><% end %></p>
 <p><strong>Where:</strong> <%= @event.location %></p>
 <p><%= @event.details %></p>
-<p><a href="/events/<%= @event.id %>/edit">Edit this event</a></p>
-<form method="POST" action="/events/<%= @event.id%>">
+<% if current_user.owns_event?(@event)%>
+    <a href="/events/<%= @event.id %>/edit" class="btn" style="float:left;">Edit</a>
+<form method="POST" action="/events/<%= @event.id%>" class="delete-btn">
     <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete" id="Delete">
+    <input class="btn" type="submit" value="Delete" id="Delete">
 </form>
+<%end %>

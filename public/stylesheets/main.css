@@ -230,7 +230,7 @@
     font-size: 18px;
   }
 
-  .form-content input[type="text"], input[type="datetime-local"], textarea {
+  .form-content input[type="text"], input[type="datetime-local"], textarea, input[type="password"] {
     padding: 5px;
     border-style: solid;
     border-color: #d4d9dd;

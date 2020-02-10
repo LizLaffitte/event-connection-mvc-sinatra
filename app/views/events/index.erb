@@ -8,12 +8,12 @@
             <div class="card-content clearfix">
                 <p><%= event.format_date(event.start_datetime) %></p>
                 <p><%= event.location %></p>
-                <a class="mini-btn" href="/events/<%= event.id%>">See Details ></a> 
+                <a class="mini-btn" href="/events/<%= event.id%>">More ></a> 
             </div>
          </div>
         
     <% end %>
 </div>
 <div>
-    <a href="/events/new">Add an event</a> or see <a href="/user/<%= @user.id %>">your events</a>.
+    <a class="btn" href="/events/new">Add Event</a> <a class="btn" href="/user/<%= @user.id %>">My events</a>
 </div>

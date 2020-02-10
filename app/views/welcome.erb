@@ -10,7 +10,7 @@
       <% @upcoming_events.each do |event|%>
         <div class="event-list-item">
         <p><strong><%= event.name %></strong></p>
-        <p><%= event.format_date(event.start_datetime)%> | <%= event.location %> <a class="mini-btn" href="/events/<%= event.id%>">See Details ></a></p>
+        <p><%= event.format_date(event.start_datetime)%> | <%= event.location %> <a class="mini-btn" href="/events/<%= event.id%>">More ></a></p>
         </div>
       <% end %>
     </div>

@@ -139,8 +139,18 @@
 
   
   .btn:hover {
-    background-color: #6BAA75;
-    border-color: #6BAA75;
+    background-color: #2E4052;
+    border-color: #2E4052;
+  }
+
+  a[href$="edit"].btn {
+    background-color: #89BD9E;
+    border-color: #89BD9E;
+  }
+
+  a[href$="edit"].btn:hover {
+    background-color: #76949F;
+    border-color: #76949F;
   }
 
   .mini-btn {
@@ -161,7 +171,7 @@
   }
 
   .event-list-view{
-    border: 1px solid #A8BCA1;
+    border: 1px solid #89BD9E;
     border-bottom: none;
     border-radius: 5px;
     max-width: 75%;
@@ -173,7 +183,7 @@
     }
 
   .special-header, .full-form.green-option .form-header, .card-header{
-    background-color: #A8BCA1;
+    background-color: #89BD9E;
     color: #fff;
   }
   .card-header, .card-content{
@@ -183,7 +193,7 @@
     float:right;
   }
   .event-list-item {
-    border-bottom: 1px solid #A8BCA1;
+    border-bottom: 1px solid #89BD9E;
     padding:5px;
   }
 
@@ -195,7 +205,7 @@
   }
 
   .full-form.green-option, .event-card {
-    border: 4px solid  #A8BCA1;
+    border: 4px solid  #89BD9E;
     border-radius: 4px;
   }
 
@@ -204,8 +214,8 @@
     font-size: 18px;
     letter-spacing: 1px;
     padding: 10px 20px;
-    background-color: #A8BCA1;
-    border: 1px solid #A8BCA1;
+    background-color: #89BD9E;
+    border: 1px solid #89BD9E;
   }
 
   .full-form.green-option .btn:hover {
@@ -262,12 +272,12 @@
   .card-holder {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
   }
   .event-card{
     flex-basis: 300px;
-    margin-bottom: 50px;
+    margin: 0 5px 50px;
   }
+
 }
 
 @media screen and (max-width: 600px) {

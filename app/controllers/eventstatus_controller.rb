@@ -1,0 +1,3 @@
+class EventStatusController < ApplicationController
+    
+end

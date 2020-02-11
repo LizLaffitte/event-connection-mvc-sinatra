@@ -45,9 +45,13 @@ class EventsController < ApplicationController
     #displays update/edit form
     get '/events/:id/edit' do
         @event = Event.find_by_id(params[:id])
-        if logged_in? && @event.user_id == current_user.id
-            @current_datetime = DateTime.now.strftime('%Y-%m-%dT%H:%M')
-            erb :'/events/edit'
+        if logged_in?
+            if  @event.user_id == current_user.id
+                @current_datetime = DateTime.now.strftime('%Y-%m-%dT%H:%M')
+                erb :'/events/edit'
+            else
+                redirect "/events/#{@event.id}"
+            end
         else
             redirect '/login'
         end

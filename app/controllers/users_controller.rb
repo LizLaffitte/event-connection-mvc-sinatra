@@ -4,9 +4,13 @@ class UsersController < ApplicationController
     get '/signup' do
         if logged_in?
             redirect '/events'
-        else
+        elsif session[:current_errors].include?("Username has already been taken") && session[:current_errors].include?("Email has already been taken")
+                session[:current_errors].clear
+                session[:current_errors] << "You already have an account. Try signing in."
+                redirect '/login'
+        else 
+             @error_messages = session[:current_errors]
             erb :'/users/signup'
-           
         end
     end
 
@@ -17,6 +21,8 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect '/events'
         else 
+            user.valid?
+            session[:current_errors] = user.errors.full_messages
             redirect '/signup'
         end
     end

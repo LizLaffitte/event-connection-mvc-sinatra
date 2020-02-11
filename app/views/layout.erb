@@ -20,6 +20,17 @@
         <ul><%= menu_options %><li><a href="/events">All Events</a></li></ul>
       </nav>
     </header>
+    <div id="holder">
+      
+        <% if @error_messages && @error_messages.length > 0 %>
+        <div class="error-message">
+        <% @error_messages.each do |error| %>
+          <em><%= error %> </em>
+        <% end %>  
+        <% @error_messages.clear %>
+        </div>
+      <% end %>
+    </div>
     <div class="wrapper">
 
         <%= yield %>

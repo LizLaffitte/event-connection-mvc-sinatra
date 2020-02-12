@@ -15,6 +15,7 @@ class EventsController < ApplicationController
     get '/events/new' do
         if logged_in?
             @current_datetime = DateTime.now.strftime('%Y-%m-%dT%H:%M')
+            @current_categories = Category.all
             erb :'/events/new'
         else
             logged_out_error
@@ -24,7 +25,7 @@ class EventsController < ApplicationController
 
     #creates new event
     post '/events' do
-        event = current_user.events.build(params)
+        event = current_user.events.build(name: params[:name], location: params[:location] )
         if event.save
             redirect "/events/#{event.id}"
         else

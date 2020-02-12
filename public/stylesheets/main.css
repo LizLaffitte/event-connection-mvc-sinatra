@@ -275,8 +275,17 @@
     border-radius: 3px;
     min-width: 225px;
   }
+  .form-content .input-group{
+    float:left;
+    min-width: 345px;
+    margin-bottom: 25px;
+  }
   input.btn{
     font-size:18px;
+  }
+  fieldset{
+    border:none;
+    margin-bottom: 25px;
   }
   .delete-btn input{
     float:left;

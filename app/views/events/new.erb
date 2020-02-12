@@ -1,21 +1,33 @@
 <form method="POST" action="/events" class="full-form green-option clearfix">
 <div class="form-header"><h1>Add a New Event</h1></div>
 <div class="form-content">
-<label>Event Name:</label><br />
-<input type="text" name="name" required>
-<br /><br />
-<label>Start Date & Time:</label>
-<br />
-<input type="datetime-local" name="start_datetime" min="<%= @current_datetime%>" >
-<br /><br />
-<label>End Date & Time:</label>
-<br />
-<input type="datetime-local" name="end_datetime" min="<%= @current_datetime%>">
-<br /><br />
+<div class="input-group">
+    <label>Event Name:</label><br />
+    <input type="text" name="name" required>
+</div>
+<div class="input-group">
+    <label>Location:</label><br />
+    <input type="text" name="location" required>
+</div>
+<div class="input-group">
+    <label>Start Date & Time:</label>
+    <br />
+    <input type="datetime-local" name="start_datetime" min="<%= @current_datetime%>" >
+</div>
+<div class="input-group">
+    <label>End Date & Time:</label>
+    <br />
+    <input type="datetime-local" name="end_datetime" min="<%= @current_datetime%>">
+</div>
+<label>Choose one or more categories:</label>
+<fieldset>
+    
+    <% @current_categories.each do |cat|%>
+        <input type="checkbox" name="category" value="<%= cat.name%>"><%= cat.name%><br>      
+        <% end %>
+</fieldset>   
 
-<label>Location:</label><br />
-<input type="text" name="location" required>
-<br /><br /><label>Details:</label><br />
+<label>Details:</label><br />
 <textarea name="details" rows="8" cols="28">
 </textarea>
 <br /><br />

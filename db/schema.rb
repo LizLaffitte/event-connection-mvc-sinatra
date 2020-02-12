@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_02_12_005802) do
     t.string "name"
   end
 
-  create_table "categories_events", force: :cascade do |t|
+  create_table "categories_events", id: false, force: :cascade do |t|
     t.integer "category_id"
     t.integer "event_id"
   end

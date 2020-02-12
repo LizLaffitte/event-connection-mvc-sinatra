@@ -1,6 +1,8 @@
 require_relative "../app/models/user.rb"
 require_relative "../app/models/event.rb"
-User.create(username: "SaraS", email: "saras@gmail.com", password: "1234")
-User.create(username: "DannyD", email: "dannyd@gmail.com", password: "abcd")
-Event.create(name: "Swim Camp", start_datetime: "2020-03-01T09:00", location: "Jacksonville, Florida", details: "For ages 3-16.", user_id: 1)
-Event.create(name: "Horse Camp", start_datetime: "2020-04-01T07:00", location: "Fernandina Beach, Florida", details: "For ages 12+. Parent permission form must be completed.", user_id: 2)
+# User.create(username: "LumpySpacePrincess", email: "wattheglob@gmail.com", password: "mylumps")
+# User.create(username: "JakeTheDog", email: "jakeNladyforever@gmail.com", password: "ilovemylady")
+# User.create(username: "Finnz123", email: "thefinnator@gmail.com", password: "flame_princess")
+# User.create(username: "MarcelineVQ", email: "vampirequeen@gmail.com", password: "timeisanillusion")
+# User.create(username: "LizLaffitte", email: "liz@gmail.com", password: "complicated")
+# Event.create(name: "Super Bowl 2021", start_datetime: "2021-02-07T12:00", location: "Tampa, Florida", details: "Super Bowl LV will be held in Raymond James Stadium.", user_id: 2, )

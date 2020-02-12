@@ -44,8 +44,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect '/events'
         elsif user && !user.authenticate(params[:password])
-            session[:current_errors] = []
-            session[:current_errors] << "Incorrect password. Try again."
+            password_error
             redirect '/login'
         else
            redirect '/login'
@@ -55,8 +54,6 @@ class UsersController < ApplicationController
     #read user | profile | See events that belong to user
     get '/user/:id' do
         if logged_in?
-            # @user = current_user
-            # @user_events = Event.all.select {|event| event.user_id == current_user.id}
             @user_events = current_user.events
             erb :'/users/show'
         else

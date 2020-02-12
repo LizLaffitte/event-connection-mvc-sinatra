@@ -22,12 +22,12 @@
     </header>
     <div id="holder">
       
-        <% if @error_messages && @error_messages.length > 0 %>
+        <% if session[:current_errors] && session[:current_errors].length > 0 %>
         <div class="error-message">
-        <% @error_messages.each do |error| %>
-          <em><%= error %> </em>
+        <% session[:current_errors].each do |error| %>
+          <em><%= error %>.</em>
         <% end %>  
-        <% @error_messages.clear %>
+        <% session[:current_errors].clear %>
         </div>
       <% end %>
     </div>

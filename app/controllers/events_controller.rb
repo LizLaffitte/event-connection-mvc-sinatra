@@ -7,6 +7,7 @@ class EventsController < ApplicationController
             @events = Event.all
             erb :'/events/index'
         else
+            logged_out_error
             redirect '/login'
         end
     end
@@ -17,17 +18,18 @@ class EventsController < ApplicationController
             @current_datetime = DateTime.now.strftime('%Y-%m-%dT%H:%M')
             erb :'/events/new'
         else
+            logged_out_error
             redirect '/login'
         end
     end
 
     #creates new event
     post '/events' do
-        event = Event.new(params)
-        event.user = current_user
+        event = current_user.events.build(params)
         if event.save
             redirect "/events/#{event.id}"
         else
+            session[:current_errors] = event.errors.full_messages
             redirect '/events/new'
         end
     end
@@ -38,6 +40,7 @@ class EventsController < ApplicationController
             @event = Event.find_by_id(params[:id])
             erb :'/events/show'
         else
+            logged_out_error
             redirect '/login'
         end
     end
@@ -46,10 +49,11 @@ class EventsController < ApplicationController
     get '/events/:id/edit' do
         @event = Event.find_by_id(params[:id])
         if logged_in?
-            if  @event.user_id == current_user.id
+            if  @event.user == current_user
                 @current_datetime = DateTime.now.strftime('%Y-%m-%dT%H:%M')
                 erb :'/events/edit'
             else
+                
                 redirect "/events/#{@event.id}"
             end
         else
@@ -69,9 +73,9 @@ class EventsController < ApplicationController
     delete '/events/:id' do
         event = Event.find_by_id(params[:id])
         if logged_in?
-            if event.user_id == current_user.id 
+            if event.user == current_user
                 event.delete
-                redirect "/user/#{current_user.id}"
+                redirect "/user/#{event.user.id}"
             else
                 redirect "/events/#{event.id}"
             end

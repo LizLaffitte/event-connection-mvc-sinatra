@@ -31,7 +31,17 @@ class ApplicationController < Sinatra::Base
         '<li><a href="/login">Login</a></li><li><a href="/signup">Sign Up</a></li>'
       end
     end
+
+    def logged_out_error
+      session[:current_errors] = []
+      session[:current_errors] << "You must be logged in to view that page"
+    end
     
+    def password_error
+      session[:current_errors] = []
+      session[:current_errors] << "Incorrect password. Try again"
+    end
+
   end
 
 end

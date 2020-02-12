@@ -3,7 +3,6 @@ class EventsController < ApplicationController
     #displays all events
     get '/events' do
         if logged_in?
-            @user = current_user
             @events = Event.all
             erb :'/events/index'
         else

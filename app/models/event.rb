@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
     belongs_to :user
+    has_and_belongs_to_many :categories
     validates :name, presence: true, length: { minimum: 3 }
     validates :start_datetime, presence: true
     validates :location, presence: true

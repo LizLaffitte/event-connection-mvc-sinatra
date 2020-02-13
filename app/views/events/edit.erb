@@ -2,21 +2,33 @@
 <div class="form-header"><h1>Edit Your Event</h1></div>
 <div class="form-content">
 <input type="hidden" name="_method" value="PATCH">
+<div class="input-group">
 <label>Event Name:</label><br />
 <input type="text" name="name" value="<%= @event.name%>" required>
-<br /><br />
+</div>
+<div class="input-group">
+<label>Location:</label><br />
+<input type="text" name="location" value="<%= @event.location%>" required>
+</div>
+<div class="input-group">
 <label>Start Date & Time:</label>
 <br />
 <input type="datetime-local" name="start_datetime" min="<%= @current_datetime%>" value="<%= @event.start_datetime%>" required>
-<br /><br />
+</div>
+<div class="input-group">
 <label>End Date & Time:</label>
 <br />
 <input type="datetime-local" name="end_datetime" min="<%= @current_datetime%>" value="<%= @event.end_datetime%>">
-<br /><br />
+</div>
+<label>Choose one or more categories:</label>
+<fieldset>
+    
+    <% @current_categories.each do |cat|%>
+        <input type="checkbox" name="category_ids[]" value="<%= cat.id %>" <% if @event.category_ids.include?(cat.id) %>checked<%end%>><%= cat.name %> <br>      
+        <% end %>
+</fieldset>   
 
-<label>Location:</label><br />
-<input type="text" name="location" value="<%= @event.location%>" required>
-<br /><br /><label>Details:</label><br />
+<label>Details:</label><br />
 <textarea name="details" rows="8" cols="28">
 <%= @event.details%>
 </textarea>

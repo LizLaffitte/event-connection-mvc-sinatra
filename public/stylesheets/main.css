@@ -159,6 +159,10 @@
     font-size: 14px;
     text-decoration: none;
     transition: background-color .5s, color .5s;
+    max-width: 55px;
+    margin-left: auto;
+    margin-right: 5px;
+}
   }
   .mini-btn:hover {
     background-color: #2E4052;
@@ -216,6 +220,8 @@
   .card-header, .card-content{
     padding: 5px;
     height: 140px;
+    display: flex;
+    flex-direction: column;
   }
   .event-card .mini-btn {
     float:right;
@@ -329,6 +335,13 @@
     font-weight:bold;
     padding: 5px 20px;
     text-align:center;
+  }
+
+  .cat-name::after{
+    content: " | "
+  }
+  .cat-name:last-child::after{
+    content: none;
   }
 
 }

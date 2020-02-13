@@ -12,7 +12,7 @@
 <div class="input-group">
     <label>Start Date & Time:</label>
     <br />
-    <input type="datetime-local" name="start_datetime" min="<%= @current_datetime%>" >
+    <input type="datetime-local" name="start_datetime" min="<%= @current_datetime%>" max="2025-12-31T24:00">
 </div>
 <div class="input-group">
     <label>End Date & Time:</label>
@@ -23,7 +23,7 @@
 <fieldset>
     
     <% @current_categories.each do |cat|%>
-        <input type="checkbox" name="category" value="<%= cat.name%>"><%= cat.name%><br>      
+        <input type="checkbox" name="category_ids[]" value="<%= cat.id %>"><%= cat.name%><br>      
         <% end %>
 </fieldset>   
 

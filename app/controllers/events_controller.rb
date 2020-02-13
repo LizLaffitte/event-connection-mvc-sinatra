@@ -3,7 +3,7 @@ class EventsController < ApplicationController
     #displays all events
     get '/events' do
         if logged_in?
-            @events = Event.all
+            @events = Event.all.order(start_datetime: :asc)
             erb :'/events/index'
         else
             logged_out_error
@@ -25,7 +25,7 @@ class EventsController < ApplicationController
 
     #creates new event
     post '/events' do
-        event = current_user.events.build(name: params[:name], location: params[:location] )
+        event = current_user.events.build(params)
         if event.save
             redirect "/events/#{event.id}"
         else
@@ -50,6 +50,7 @@ class EventsController < ApplicationController
         @event = Event.find_by_id(params[:id])
         if logged_in?
             if  @event.user == current_user
+                @current_categories = Category.all
                 @current_datetime = DateTime.now.strftime('%Y-%m-%dT%H:%M')
                 erb :'/events/edit'
             else
@@ -64,7 +65,7 @@ class EventsController < ApplicationController
     #edits event
     patch '/events/:id' do
         @event = Event.find_by_id(params[:id])
-        @event.update(:name => params[:name], :start_datetime => params[:start_datetime], :end_datetime => params[:end_datetime], :location => params[:location], :details => params[:details])
+        @event.update(:name => params[:name], :start_datetime => params[:start_datetime], :end_datetime => params[:end_datetime], :location => params[:location], :details => params[:details], :category_ids => params[:category_ids])
         redirect "/events/#{@event.id}"
 
     end

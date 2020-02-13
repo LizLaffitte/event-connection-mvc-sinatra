@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     #read user | profile | See events that belong to user
     get '/user/:id' do
         if logged_in?
-            @user_events = current_user.events
+            @user_events = current_user.events.order(start_datetime: :asc)
             erb :'/users/show'
         else
             redirect '/login'

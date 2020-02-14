@@ -343,6 +343,11 @@
   .cat-name:last-child::after{
     content: none;
   }
+  .category-list {
+    color: #76949F;
+    font-weight: bold;
+    font-style: italic;
+  }
 
 }
 

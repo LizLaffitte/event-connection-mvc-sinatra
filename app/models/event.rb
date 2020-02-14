@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
     validates :location, presence: true
 
     def format_date_long(datetime_string)
-        @date_obj = Date.strptime(datetime_string, '%Y-%m-%dT%H:%M')
+        @date_obj = DateTime.strptime(datetime_string, '%Y-%m-%dT%H:%M')
         @date_obj.strftime('%A, %B %-d, %Y, %l:%M %P')    
     end
 

@@ -3,7 +3,7 @@
     <span class="cat-name"><%= cat.name%></span>
     <%end%>
     </em>
-<p><strong>When:</strong> <%= @event.start_datetime %><% if @event.end_datetime != "" && @event.end_datetime != nil %> <%= @event.format_date_long(@event.end_datetime) %><% end %></p>
+<p><strong>When:</strong> <%= @event.format_date_long(@event.start_datetime) %><% if @event.end_datetime != "" && @event.end_datetime != nil %> - <%= @event.format_date_long(@event.end_datetime) %><% end %></p>
 <p><strong>Where:</strong> <%= @event.location %></p>
 <p><%= @event.details %></p>
 <% if current_user.owns_event?(@event)%>

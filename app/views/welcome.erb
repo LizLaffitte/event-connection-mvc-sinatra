@@ -9,7 +9,11 @@
       <div class="special-header"><h2>Upcoming Events:</h2></div>
       <% @upcoming_events.each do |event|%>
         <div class="event-list-item">
-        <p><strong><%= event.name %></strong></p>
+        <h3><%= event.name %></h3>
+        <p class="category-list">
+        <% event.categories.each do |cat| %>
+          <span class="cat-name"><%= cat.name%></span> 
+          <% end %></p>
         <p><%= event.format_date(event.start_datetime)%> | <%= event.location %> <a class="mini-btn" href="/events/<%= event.id%>">More ></a></p>
         </div>
       <% end %>

@@ -9,7 +9,6 @@ class UsersController < ApplicationController
                 session[:current_errors] << "You already have an account. Try signing in"
                 redirect '/login'
         else 
-             @error_messages = session[:current_errors]
             erb :'/users/signup'
         end
     end
@@ -32,7 +31,6 @@ class UsersController < ApplicationController
         if logged_in?
             redirect '/events'
         else
-            @error_messages = session[:current_errors]
             erb :'/users/login'
         end
     end
@@ -55,8 +53,12 @@ class UsersController < ApplicationController
     get '/user/:id' do
         if logged_in?
             @user = User.find_by_id(params[:id])
-            @user_events = @user.events.order(start_datetime: :asc)
-            erb :'/users/show'
+            if @user
+                @user_events = @user.events.order(start_datetime: :asc)
+                erb :'/users/show'
+            else
+                erb :error
+            end
         else
             redirect '/login'
         end

@@ -11,7 +11,7 @@ Specs:
 - [x] Ensure that users can't modify content created by other users / Users will not see edit or delete buttons for events that don't belong to them. If they try to navigate to the Update route, they are redirected.
 - [x] Include user input validations / Users must have unique emails and usernames, email addresses checked against Ruby REGEX to ensure they are email addresses. Events must have a name, location and start date. Event names must be at least 3 characters long. 
 - [x] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new) / Error messages displayed in red box for login and signup errors
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
 - [x] You have a large number of small Git commits

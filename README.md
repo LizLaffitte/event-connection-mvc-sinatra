@@ -48,13 +48,6 @@ Looking for a specific way to contribute?
 - Adding the ability to sort by location and/or categories
 - Adding State dropdown to Create and Edit Event forms
 
-#TODO
-#Add sidebar to My Events page (Add event)
-#Add categories
-#Add sort to events and My events pages
-#Add attendees/Event Status
-##Need to determine relationship. An event status belongs to a user and an event. An event has many event statuses and a User has many events. Does an event have many users through an event status? Can a model have two types of relationships with another model?  
-#Sort by location/Location events page?
-#Seed more events -- pagination
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
 
-Password REGEX: Email address tests for @ . 3 letters

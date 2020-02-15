@@ -6,7 +6,7 @@ class UsersController < ApplicationController
             redirect '/events'
         elsif session[:current_errors] && session[:current_errors].include?("Username has already been taken") && session[:current_errors].include?("Email has already been taken")
                 session[:current_errors].clear
-                session[:current_errors] << "You already have an account. Try signing in."
+                session[:current_errors] << "You already have an account. Try signing in"
                 redirect '/login'
         else 
              @error_messages = session[:current_errors]
@@ -54,7 +54,8 @@ class UsersController < ApplicationController
     #read user | profile | See events that belong to user
     get '/user/:id' do
         if logged_in?
-            @user_events = current_user.events.order(start_datetime: :asc)
+            @user = User.find_by_id(params[:id])
+            @user_events = @user.events.order(start_datetime: :asc)
             erb :'/users/show'
         else
             redirect '/login'

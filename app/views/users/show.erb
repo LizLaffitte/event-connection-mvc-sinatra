@@ -1,4 +1,4 @@
-<h1><%= current_user.username %>'s Events</h1>
+<h1><% if @user != current_user %>You Are Viewing <% end %><%= @user.username %>'s Events</h1>
 <div class="card-holder">
 <% @user_events.each do |event| %>
     <div class="event-card">
@@ -19,5 +19,11 @@
     
 <% end %>
 </div>
-    <div><a href="/events/new" class="btn">Add Event</a></div>
+    <div>
+        <% if @user == current_user %>
+            <a href="/events/new" class="btn">Add Event</a>
+        <% else %>
+            <a href="/user/<%= current_user.id %>" class="btn">See Your Events</a>
+        <% end %>
+    </div>
       

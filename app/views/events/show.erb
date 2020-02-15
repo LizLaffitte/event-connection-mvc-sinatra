@@ -11,5 +11,5 @@
 <form method="POST" action="/events/<%= @event.id%>" class="delete-btn">
     <input type="hidden" name="_method" value="DELETE">
     <input class="btn" type="submit" value="Delete" id="Delete">
-</form><div style="clear:both"></div><a href="/user/<%= current_user.id %>" class="btn" >My events</a> <a href="/events" class="btn" >Add Event</a>
+</form><div style="clear:both"></div><a href="/user/<%= current_user.id %>" class="btn" >My events</a> <a href="/events/new" class="btn" >Add Event</a>
 <%end %>

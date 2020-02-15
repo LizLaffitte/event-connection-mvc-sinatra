@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
     has_and_belongs_to_many :categories
     validates :name, presence: true, length: { minimum: 3 }
     validates :start_datetime, presence: true
-    validates :location, presence: true
+    validates :location, presence: true, length: { in: 3..50 }
 
     def format_date_long(datetime_string)
         @date_obj = DateTime.strptime(datetime_string, '%Y-%m-%dT%H:%M')

@@ -6,8 +6,13 @@
                 <h3><%= event.name %></h3>
             </div>
             <div class="card-content clearfix">
-                <p><%= event.format_date(event.start_datetime) %></p>
-                <p><%= event.location %></p>
+                <%= event.format_date(event.start_datetime) %>
+                <p class="category-list">
+                <% event.categories.each do |cat| %>
+                    <span class="cat-name"><%= cat.name%></span> 
+                <% end %>
+                </p>
+                <%= event.location %>
                 <a class="mini-btn" href="/events/<%= event.id%>">More ></a> 
             </div>
          </div>

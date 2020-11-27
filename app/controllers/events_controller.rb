@@ -3,6 +3,7 @@ class EventsController < ApplicationController
     #displays all events
     get '/events' do
         if logged_in?
+            Event.eventbrite_auth
             @events = Event.current_events
             erb :'/events/index'
         else

@@ -3,7 +3,7 @@ class EventsController < ApplicationController
     #displays all events
     get '/events' do
         if logged_in?
-            @events = Event.all.order(start_datetime: :asc)
+            @events = Event.current_events
             erb :'/events/index'
         else
             logged_out_error

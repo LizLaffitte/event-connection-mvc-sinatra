@@ -16,4 +16,9 @@ class Event < ActiveRecord::Base
         @date_obj.strftime('%D')    
     end
 
+    def self.current_events
+        self.all.order(start_datetime: :asc).filter{|event| event.start_datetime > DateTime.now.strftime('%Y-%m-%dT%H:%M')}
+    end
+
+
 end

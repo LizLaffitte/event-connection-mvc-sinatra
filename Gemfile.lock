@@ -36,6 +36,7 @@ GEM
     daemons (1.3.1)
     date (3.0.0)
     diff-lcs (1.3)
+    dotenv (2.7.6)
     eventmachine (1.2.7)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
@@ -118,6 +119,7 @@ DEPENDENCIES
   capybara
   database_cleaner!
   date
+  dotenv
   json
   pry
   rack-test

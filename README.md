@@ -6,19 +6,19 @@ This Sinatra MVC app was built as a project for Flatiron school. It allows users
 To run this app locally, fork and clone this GitHub repoto your local machine, using the terminal. 
 
 ``` 
-git@github.com:LizLaffitte/event-connection-mvc-sinatra.git
+$git clone git@github.com:YouUsername/event-connection-mvc-sinatra.git
 ```
-Change directories into the repo directory and run the $bundle install command. 
+Change directories into the repo directory and run bundle install. 
 
 ``` 
-cd event-connection-mvc-sinatra
-bundle install
+$cd event-connection-mvc-sinatra
+$bundle install
 ```
 
-Run the $shotgun command to start an automatic reloading version of a rackup. 
+Run shotgun to start an automatic reloading version of a rackup. 
 
 ```
-shotgun
+$shotgun
 ```
 Navigate to the route displayed in the terminal. (E.g. http://127.0.0.1:9393)
 

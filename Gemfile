@@ -12,6 +12,8 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'date'
+gem 'json'
+
 
 group :test do
   gem 'rspec'

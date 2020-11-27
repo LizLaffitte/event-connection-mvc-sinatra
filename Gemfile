@@ -13,7 +13,7 @@ gem 'bcrypt'
 gem 'tux'
 gem 'date'
 gem 'json'
-
+gem 'dotenv'
 
 group :test do
   gem 'rspec'
